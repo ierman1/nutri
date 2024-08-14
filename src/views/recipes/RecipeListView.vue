@@ -3,12 +3,20 @@
 
 	<router-link to="/recipes/new">New recipe</router-link>
 
+	<RecipeList :recipes="$store.state.recipes" />
+
 </template>
 
 <script>
 
+import RecipeList from '@/components/recipes/RecipeList.vue';
+
 export default {
-	name: 'RecipeListView'
+	name: 'RecipeListView',
+	components: {
+		RecipeList
+	}
+
 }
 
 </script>
