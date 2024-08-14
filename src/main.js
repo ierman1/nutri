@@ -30,6 +30,10 @@ const store = createStore({
             state.editableRecipe = new Recipe('', []);
         },
 
+        updateRecipeName(state, name) {
+            state.editableRecipe.name = name;
+        },
+
         addIngredientToRecipe(state, ingredient) {
             state.editableRecipe.addIngredient(ingredient);
         },

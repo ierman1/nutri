@@ -2,7 +2,7 @@
 	<h1>New recipe</h1>
 
 	<label for="name">Recipe name</label>
-	<input type="text" id="name">
+	<input type="text" id="name" @keyup="updateRecipeName">
 
 	<h2>Ingredients</h2>
 	<FetchIngredient />
@@ -27,6 +27,9 @@ export default {
 		FetchIngredient
 	},
 	methods: {
+		updateRecipeName(event) {
+			this.$store.commit('updateRecipeName', event.target.value)
+		},
 		saveRecipe() {
 			this.$store.commit('addRecipeToList');
 			this.$router.push('/recipes');
