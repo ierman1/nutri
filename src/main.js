@@ -13,7 +13,16 @@ const store = createStore({
     state: {
         ingredientSearch: [],
         editableRecipe: null,
-        recipes: []
+        recipes: [],
+        calendar: {
+            'Monday': [],
+            'Tuesday': [],
+            'Wednesday': [],
+            'Thursday': [],
+            'Friday': [],
+            'Saturday': [],
+            'Sunday': []
+        }
     },
     mutations: {
         // Ingredient search
@@ -44,8 +53,13 @@ const store = createStore({
 
         // Recipe list
         addRecipeToList(state) {
-            console.log('Saving')
             state.recipes.push(state.editableRecipe);
+        },
+
+        // Calendar
+        addRecipeToDay(state, { day, recipe }) {
+            console.log(day, recipe)
+            state.calendar[day].push(recipe);
         }
     }
 })
