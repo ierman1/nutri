@@ -1,5 +1,5 @@
 const ADDRESS = 'https://api.nal.usda.gov/fdc/v1/';
-const KEY = 'DEMO_KEY';
+const KEY = import.meta.env.VITE_API_KEY;
 
 export default class Api {
 
