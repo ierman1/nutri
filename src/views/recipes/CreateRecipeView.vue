@@ -1,17 +1,20 @@
 <template>
 	<h1>New recipe</h1>
+	<router-link to="/recipes">Back</router-link>
 
-	<label for="name">Recipe name</label>
-	<input type="text" id="name" @keyup="updateRecipeName">
+	<div>
+		<label for="name">Recipe name</label>
+		<input type="text" id="name" @keyup="updateRecipeName">
 
-	<h2>Ingredients</h2>
-	<FetchIngredient />
+		<h2>Ingredients</h2>
+		<FetchIngredient />
 
-	<h3>Search results</h3>
-	<IngredientList :ingredients="$store.state.ingredientSearch" :addable="true" />
+		<h3>Search results</h3>
+		<IngredientList :ingredients="$store.state.ingredientSearch" :addable="true" />
 
-	<h3>Added ingredients</h3>
-	<IngredientList :ingredients="$store.state.editableRecipe.ingredients" :removable="true" />
+		<h3>Added ingredients</h3>
+		<IngredientList :ingredients="$store.state.editableRecipe.ingredients" :removable="true" />
+	</div>
 
 	<button @click="saveRecipe">Save recipe</button>
 </template>

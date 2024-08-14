@@ -1,5 +1,6 @@
 <template>
 	<h1>Recipes</h1>
+	<router-link to="/">Back to home</router-link> |
 
 	<router-link to="/recipes/new">New recipe</router-link>
 
