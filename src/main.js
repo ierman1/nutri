@@ -51,7 +51,6 @@ const store = createStore({
 
         // Calendar
         addRecipeToDay(state, { day, recipe }) {
-            console.log(day, recipe)
             state.calendar[day].push(recipe);
         }
     }
@@ -62,7 +61,6 @@ seed.recipes.forEach(recipe => {
 
     Ingredient.fetch(recipe.ingredients)
         .then(data => {
-            console.log(data)
             store.state.recipes.push(new Recipe(recipe.name, Ingredient.formatSearch(data)));
         });
 
