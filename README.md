@@ -1,20 +1,23 @@
-# nutri
+# Project: Nutri
 
-This template should help get you started developing with Vue 3 in Vite.
+This app allows you to create recipes and add the ingredients. The app will list all the nutrients given by the recipe. It also allows you to create a calendar, attaching the recipes created to the specified day. You can export the content of the calendar into a shopping list with all the ingredients.
 
-## Recommended IDE Setup
+## FoodData Central
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+The data used by the app is obtained using the [FoodData Central API](https://fdc.nal.usda.gov/api-guide.html). If you wanna test this app in a local environment you'll need to get an API key from their site or use the demo key.
 
-## Customize configuration
+## Project branches
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+There are (or will be) 2 branches for this project. One is client-only with no persistent data, made only to test the app and as portfolio. The other branch will include database access, persistent data and account management.
 
 ## Project Setup
 
 ```sh
 npm install
 ```
+
+### API key setup
+- Duplicate the .env.example file and rename it to .env. Once done, you can change the demo key for your own or test the app with that one.
 
 ### Compile and Hot-Reload for Development
 
@@ -26,26 +29,4 @@ npm run dev
 
 ```sh
 npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
 ```
