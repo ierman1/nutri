@@ -10,7 +10,7 @@
 		<FetchIngredient />
 
 		<h3>Added ingredients</h3>
-		<IngredientList :ingredients="$store.state.editableRecipe.ingredients" :removable="true" />
+		<IngredientList :ingredients="$store.state.editableRecipe.ingredients" :removable="true" @ingredientRemoved="removeIngredientFromRecipe" />
 	</div>
 
 	<button @click="saveRecipe">Save recipe</button>
@@ -33,6 +33,9 @@ export default {
 		saveRecipe() {
 			this.$store.commit('addRecipeToList');
 			this.$router.push('/recipes');
+		},
+		removeIngredientFromRecipe(ingredient) {
+			this.$store.commit('removeIngredientFromRecipe', this.ingredient);
 		}
 	},
 	created() {

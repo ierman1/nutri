@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<p>{{ ingredient.name }}</p>
-		<button v-if="editTools.addable" @click="addIngredientToRecipe">Add to recipe</button>
-		<button v-if="editTools.removable" @click="removeIngredientFromRecipe">Remove from recipe</button>
+		<button v-if="editTools.addable" @click="addIngredient">Add ingredient</button>
+		<button v-if="editTools.removable" @click="removeIngredient">Remove ingredient</button>
 	</div>
 </template>
 
@@ -23,12 +23,11 @@ export default {
 		}
 	},
 	methods: {
-		addIngredientToRecipe() {
-			this.$store.commit('addIngredientToRecipe', this.ingredient);
-			this.$parent.$emit('ingredientListUpdated');
+		addIngredient() {
+			this.$parent.$emit('ingredientAdded', this.ingredient);
 		},
-		removeIngredientFromRecipe() {
-			this.$store.commit('removeIngredientFromRecipe', this.ingredient);
+		removeIngredient() {
+			this.$parent.$emit('ingredientRemoved', this.ingredient);
 		}
 	}
 }

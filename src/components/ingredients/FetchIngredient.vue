@@ -4,7 +4,7 @@
 		<button @click="fetch">Search</button>
 
 		<h3>Search results</h3>
-		<IngredientList :ingredients="searchResults" :addable="true" @ingredientListUpdated="resetIngredientList" />
+		<IngredientList :ingredients="searchResults" :addable="true" @ingredientAdded="addIngredientToRecipe" />
 	</div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 	},
 	data() {
 		return {
-			query: null,
+			query: '',
 			searchResults: []
 		}
 	},
@@ -34,7 +34,8 @@ export default {
 					});
 			}
 		},
-		resetIngredientList() {
+		addIngredientToRecipe(ingredient) {
+			this.$store.commit('addIngredientToRecipe', ingredient);
 			this.searchResults = [];
 		}
 	}

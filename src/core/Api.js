@@ -8,7 +8,7 @@ const nutrients = [
 export default class Api {
 
     static fetchByName(name) {
-        const query = `${ADDRESS}/foods/search?api_key=${KEY}&query=${encodeURI(query)}&dataType=Foundation`;
+        const query = `${ADDRESS}/foods/search?api_key=${KEY}&query=${encodeURI(name)}&dataType=Foundation`;
         return fetch(query);
     }
 
