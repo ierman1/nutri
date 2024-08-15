@@ -13,7 +13,8 @@ export default class Api {
     }
 
     static fetchByIds(ids) {
-        const query = `${ADDRESS}/foods?api_key=${KEY}&fcdIds=${ids.join(',')}&nutrients=${nutrients.join(',')}&dataType=Foundation`;
+        const query = `${ADDRESS}/foods?api_key=${KEY}&fdcIds=${ids.join(',')}&nutrients=${nutrients.join(',')}`;
+        return fetch(query);
     }
 
 }

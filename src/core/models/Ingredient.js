@@ -29,7 +29,7 @@ export default class Ingredient {
     }
 
     static fetch(ids) {
-        const request = Api.fetchByIds(query);
+        const request = Api.fetchByIds(ids);
         return request.then(response => response.json());
     }
 
