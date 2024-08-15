@@ -2,18 +2,27 @@
 	<div>
 		<input type="text" v-model="query">
 		<button @click="fetch">Search</button>
+
+		<h3>Search results</h3>
+		<IngredientList :ingredients="searchResults" :addable="true" @ingredientListUpdated="resetIngredientList" />
 	</div>
 </template>
 
 <script>
 
 import Ingredient from '@/core/models/Ingredient.js';
+import IngredientList from '@/components/ingredients/IngredientList.vue';
 
 export default {
 	name: 'FetchIngredient',
+	emits: ['searchCompleted'],
+	components: {
+		IngredientList
+	},
 	data() {
 		return {
-			query: null
+			query: null,
+			searchResults: []
 		}
 	},
 	methods: {
@@ -21,9 +30,12 @@ export default {
 			if (this.query.trim() != '') {
 				Ingredient.fetch(this.query)
 					.then(data => {
-						this.$store.commit('updateIngredientSearch', Ingredient.formatSearch(data.foods));
+						this.searchResults = Ingredient.formatSearch(data.foods);
 					});
 			}
+		},
+		resetIngredientList() {
+			this.searchResults = [];
 		}
 	}
 }

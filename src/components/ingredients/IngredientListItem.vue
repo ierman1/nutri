@@ -25,7 +25,7 @@ export default {
 	methods: {
 		addIngredientToRecipe() {
 			this.$store.commit('addIngredientToRecipe', this.ingredient);
-			this.$store.commit('resetIngredientSearch');
+			this.$parent.$emit('ingredientListUpdated');
 		},
 		removeIngredientFromRecipe() {
 			this.$store.commit('removeIngredientFromRecipe', this.ingredient);

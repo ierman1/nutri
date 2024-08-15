@@ -13,6 +13,7 @@ export default {
 	components: {
 		IngredientListItem
 	},
+	emits: ['ingredientListUpdated'],
 	props: {
 		addable: {
 			type: Boolean,
@@ -33,7 +34,10 @@ export default {
 				addable: this.addable,
 				removable: this.removable
 			}
-		}
+		},
+		addIngredientToRecipe() {
+			this.$store.commit('addIngredientToRecipe', this.ingredient);
+		},
 	}
 }
 

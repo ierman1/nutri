@@ -9,9 +9,6 @@
 		<h2>Ingredients</h2>
 		<FetchIngredient />
 
-		<h3>Search results</h3>
-		<IngredientList :ingredients="$store.state.ingredientSearch" :addable="true" />
-
 		<h3>Added ingredients</h3>
 		<IngredientList :ingredients="$store.state.editableRecipe.ingredients" :removable="true" />
 	</div>
@@ -21,7 +18,7 @@
 
 <script>
 import FetchIngredient from '@/components/ingredients/FetchIngredient.vue';
-import IngredientList from "@/components/ingredients/IngredientList.vue";
+import IngredientList from '@/components/ingredients/IngredientList.vue';
 
 export default {
 	name: 'CreateRecipeView',
@@ -31,7 +28,7 @@ export default {
 	},
 	methods: {
 		updateRecipeName(event) {
-			this.$store.commit('updateRecipeName', event.target.value)
+			this.$store.commit('updateRecipeName', event.target.value);
 		},
 		saveRecipe() {
 			this.$store.commit('addRecipeToList');
@@ -40,7 +37,6 @@ export default {
 	},
 	created() {
 		this.$store.commit('createNewRecipe');
-		this.$store.commit('resetIngredientSearch');
 	}
 }
 </script>

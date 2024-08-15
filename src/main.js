@@ -11,7 +11,6 @@ const app = createApp(App)
 
 const store = createStore({
     state: {
-        ingredientSearch: [],
         editableRecipe: null,
         recipes: [],
         calendar: {
@@ -25,15 +24,6 @@ const store = createStore({
         }
     },
     mutations: {
-        // Ingredient search
-        updateIngredientSearch(state, searchResults) {
-            state.ingredientSearch = searchResults;
-        },
-
-        resetIngredientSearch(state) {
-            state.ingredientSearch = [];
-        },
-
         // Editable recipe
         createNewRecipe(state) {
             state.editableRecipe = new Recipe('', []);
