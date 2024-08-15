@@ -5,7 +5,7 @@
 		<RecipeSelector @recipeSelected="addRecipe" />
 		<h3>Selected recipes</h3>
 		<hr>
-		<RecipeList :recipes="recipes" />
+		<RecipeList :recipes="recipes" @recipeRemoved="removeRecipe" :removable="true" />
 	</div>
 </template>
 
@@ -35,6 +35,10 @@ export default {
 		addRecipe(recipe) {
 			const day = this.day;
 			this.$store.commit('addRecipeToDay', { day, recipe });
+		},
+		removeRecipe(recipe) {
+			const day = this.day;
+			this.$store.commit('removeRecipeFromDay', { day, recipe });
 		}
 	}
 }

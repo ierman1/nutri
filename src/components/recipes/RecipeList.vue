@@ -1,5 +1,5 @@
 <template>
-	<RecipeListItem v-for="recipe in recipes" :recipe="recipe" />
+	<RecipeListItem v-for="recipe in recipes" :recipe="recipe" :editTools="editTools" />
 </template>
 
 <script>
@@ -15,6 +15,23 @@ export default {
 		recipes: {
 			type: Array,
 			required: true
+		},
+		addable: {
+			type: Boolean,
+			default: false
+		},
+		removable: {
+			type: Boolean,
+			default: false
+		}
+	},
+	emits: ['recipeRemoved'],
+	computed: {
+		editTools() {
+			return {
+				addable: this.addable,
+				removable: this.removable
+			}
 		}
 	}
 }

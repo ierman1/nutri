@@ -49,9 +49,19 @@ const store = createStore({
             state.recipes.push(state.editableRecipe);
         },
 
+        removeRecipe(state, recipe) {
+            const index = state.recipes.indexOf(recipe);
+            state.recipes.splice(index, 1);
+        },
+
         // Calendar
         addRecipeToDay(state, { day, recipe }) {
             state.calendar[day].push(recipe);
+        },
+
+        removeRecipeFromDay(state, { day, recipe }) {
+            const index = state.calendar[day].indexOf(recipe);
+            state.calendar[day].splice(index, 1);
         }
     }
 })
