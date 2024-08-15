@@ -1,3 +1,5 @@
+import Ingredient from '@/core/models/Ingredient.js';
+
 export default class Recipe {
 
     constructor(name, ingredients) {
@@ -28,6 +30,27 @@ export default class Recipe {
     removeIngredient(ingredient) {
         const index = this.ingredients.indexOf(ingredient);
         this.ingredients.splice(index, 1);
+    }
+
+    static seedRecipes(store, seed) {
+        seed.recipes.forEach(recipe => {
+
+            const ingredientIds = recipe.ingredients.map(ingredient => {
+                return ingredient.fdcId;
+            });
+
+            Ingredient.fetch(ingredientIds)
+                .then(data => {
+                    const ingredients = [];
+
+                    data.forEach((ingredient, index) => {
+                        ingredients.push(Ingredient.formatSearch(ingredient, recipe.ingredients[index].amount, recipe.ingredients[index].amount_type));
+                    });
+
+                    store.state.recipes.push(new Recipe(recipe.name, ingredients));
+                });
+
+        })
     }
 
 }

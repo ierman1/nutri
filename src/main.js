@@ -6,9 +6,6 @@ import router from './router'
 import {createStore} from "vuex";
 import Recipe from "@/core/models/Recipe.js";
 
-import seed from '@/assets/seed.json';
-import Ingredient from "@/core/models/Ingredient.js";
-
 const app = createApp(App)
 
 
@@ -64,16 +61,6 @@ const store = createStore({
             state.calendar[day].splice(index, 1);
         }
     }
-})
-
-// Seed from JSON file
-seed.recipes.forEach(recipe => {
-
-    Ingredient.fetch(recipe.ingredients)
-        .then(data => {
-            store.state.recipes.push(new Recipe(recipe.name, Ingredient.formatSearch(data)));
-        });
-
 })
 
 
