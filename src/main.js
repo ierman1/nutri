@@ -57,8 +57,6 @@ const store = createStore({
     }
 })
 
-console.log(seed)
-
 // Seed from JSON file
 seed.recipes.forEach(recipe => {
 
