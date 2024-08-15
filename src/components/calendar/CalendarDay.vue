@@ -12,11 +12,13 @@
 <script>
 
 import RecipeSelector from '@/components/recipes/RecipeSelector.vue';
+import RecipeList from '@/components/recipes/RecipeList.vue';
 
 export default {
 	name: 'CalendarDay',
 	components: {
-		RecipeSelector
+		RecipeSelector,
+		RecipeList
 	},
 	props: {
 		day: {
