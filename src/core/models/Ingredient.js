@@ -2,9 +2,18 @@ import Api from "@/core/Api.js";
 
 export default class Ingredient {
 
-    constructor(name, macros) {
+    constructor(id, name, macros) {
+        this._id = id;
         this._name = name;
         this._macros = macros;
+    }
+
+    get id() {
+        return this._id;
+    }
+
+    set id(value) {
+        this._id = value;
     }
 
     get name() {
@@ -37,7 +46,7 @@ export default class Ingredient {
         const formattedArray = [];
 
         results.forEach(ingredient => {
-            formattedArray.push(new Ingredient(ingredient.description, ingredient.foodNutrients));
+            formattedArray.push(new Ingredient(ingredient.fdcId, ingredient.description, ingredient.foodNutrients));
         })
 
         return formattedArray;
