@@ -23,8 +23,13 @@ export default class Ingredient {
         this._macros = value;
     }
 
-    static fetch(query) {
+    static search(query) {
         const request = Api.fetchByName(query);
+        return request.then(response => response.json());
+    }
+
+    static fetch(ids) {
+        const request = Api.fetchByIds(query);
         return request.then(response => response.json());
     }
 

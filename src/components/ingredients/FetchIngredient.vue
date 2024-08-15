@@ -28,7 +28,7 @@ export default {
 	methods: {
 		fetch() {
 			if (this.query.trim() != '') {
-				Ingredient.fetch(this.query)
+				Ingredient.search(this.query)
 					.then(data => {
 						this.searchResults = Ingredient.formatSearch(data.foods);
 					});
