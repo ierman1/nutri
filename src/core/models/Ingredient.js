@@ -2,10 +2,12 @@ import Api from "@/core/Api.js";
 
 export default class Ingredient {
 
-    constructor(id, name, macros) {
+    constructor(id, name, macros, amount = 0, amountType = null) {
         this._id = id;
         this._name = name;
         this._macros = macros;
+        this._amount = amount;
+        this._amountType = amountType;
     }
 
     get id() {
@@ -32,24 +34,36 @@ export default class Ingredient {
         this._macros = value;
     }
 
+    get amount() {
+        return this._amount;
+    }
+
+    set amount(value) {
+        this._amount = value;
+    }
+
+    get amountType() {
+        return this._amountType;
+    }
+
+    set amountType(value) {
+        this._amountType = value;
+    }
+
     static search(query) {
+        console.log('Search method.');
         const request = Api.fetchByName(query);
         return request.then(response => response.json());
     }
 
     static fetch(ids) {
+        console.log('Fetch method.');
         const request = Api.fetchByIds(ids);
         return request.then(response => response.json());
     }
 
-    static formatSearch(results) {
-        const formattedArray = [];
-
-        results.forEach(ingredient => {
-            formattedArray.push(new Ingredient(ingredient.fdcId, ingredient.description, ingredient.foodNutrients));
-        })
-
-        return formattedArray;
+    static instantiateSearch(ingredientData, amount = 0, amountType = null) {
+        return new Ingredient(ingredientData.fdcId, ingredientData.description, ingredientData.foodNutrients, amount, amountType);
     }
 
 }

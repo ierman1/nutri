@@ -6,7 +6,7 @@
 
 <script>
 
-import IngredientListItem from "@/components/ingredients/IngredientListItem.vue";
+import IngredientListItem from '@/components/ingredients/IngredientListItem.vue';
 
 export default {
 	name: 'IngredientList',

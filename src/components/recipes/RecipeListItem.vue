@@ -2,13 +2,16 @@
 	<div>
 		<p>{{ recipe.name }}</p>
 		<ul>
-			<li v-for="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
+			<li v-for="ingredient in recipe.ingredients">
+				{{ ingredient.name }}, {{ ingredient.amount }} {{ ingredient.amountType }}
+			</li>
 			<button v-if="editTools.removable" @click="removeRecipe">Remove recipe</button>
 		</ul>
 	</div>
 </template>
 
 <script>
+
 import Recipe from '@/core/models/Recipe.js';
 
 export default {
@@ -29,6 +32,7 @@ export default {
 		}
 	}
 }
+
 </script>
 
 <style scoped>

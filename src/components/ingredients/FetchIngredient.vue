@@ -30,7 +30,9 @@ export default {
 			if (this.query.trim() != '') {
 				Ingredient.search(this.query)
 					.then(data => {
-						this.searchResults = Ingredient.formatSearch(data.foods);
+						data.foods.forEach(ingredient => {
+							this.searchResults.push(Ingredient.instantiateSearch(ingredient));
+						});
 					});
 			}
 		},

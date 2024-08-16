@@ -1,14 +1,27 @@
 <template>
 	<div>
 		<p>{{ ingredient.name }}</p>
-		<button v-if="editTools.addable" @click="addIngredient">Add ingredient</button>
+		<div v-if="editTools.addable">
+			<div>
+				<label for="amount">Amount</label>
+				<input type="number" id="amount" v-model="ingredient.amount">
+			</div>
+			<div>
+				<label for="amount_type">Amount type</label>
+				<input type="text" id="amount_type" v-model="ingredient.amountType">
+			</div>
+			<button @click="addIngredient">Add ingredient</button>
+		</div>
+		<p v-else>
+			{{ ingredient.amount }} {{ ingredient.amountType }}
+		</p>
 		<button v-if="editTools.removable" @click="removeIngredient">Remove ingredient</button>
 	</div>
 </template>
 
 <script>
 
-import Ingredient from "@/core/models/Ingredient.js";
+import Ingredient from '@/core/models/Ingredient.js';
 
 export default {
 	name: 'IngredientListItem',

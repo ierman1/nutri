@@ -3,8 +3,16 @@
 		{
 			"name": "Chicken with cucumber",
 			"ingredients": [
-				2646170,
-				2346406
+				{
+					"fdcId": 2646170,
+					"amount": 100,
+					"amount_type": "grams"
+				},
+				{
+					"fdcId": 2346406,
+					"amount": 100,
+					"amount_type": "grams"
+				}
 			]
 		}
 	]

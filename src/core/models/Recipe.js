@@ -44,7 +44,7 @@ export default class Recipe {
                     const ingredients = [];
 
                     data.forEach((ingredient, index) => {
-                        ingredients.push(Ingredient.formatSearch(ingredient, recipe.ingredients[index].amount, recipe.ingredients[index].amount_type));
+                        ingredients.push(Ingredient.instantiateSearch(ingredient, recipe.ingredients[index].amount, recipe.ingredients[index].amount_type));
                     });
 
                     store.state.recipes.push(new Recipe(recipe.name, ingredients));
