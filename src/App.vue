@@ -5,7 +5,7 @@ import Recipe from '@/core/models/Recipe.js';
 </script>
 
 <template>
-  <RouterView />
+  <RouterView class="bg-blue-50" />
 </template>
 
 <script !src="">
