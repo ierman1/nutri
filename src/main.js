@@ -1,10 +1,9 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import {createStore} from "vuex";
 import Recipe from "@/core/models/Recipe.js";
+import './assets/main.css'
 
 const app = createApp(App)
 
