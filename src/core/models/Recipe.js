@@ -53,4 +53,20 @@ export default class Recipe {
         })
     }
 
+    static exportIngredientList(recipes, ingredients = []) {
+        recipes.forEach(recipe => {
+            recipe.ingredients.forEach(ingredient => {
+                const exists = ingredients.find((i) => i.id == ingredient.id);
+
+                if (!exists) {
+                    ingredients.push(new Ingredient(ingredient.id, ingredient.name, ingredient.macros, ingredient.amount, ingredient.amountType));
+                } else {
+                    exists.amount += ingredient.amount;
+                }
+            });
+        });
+
+        return ingredients;
+    }
+
 }

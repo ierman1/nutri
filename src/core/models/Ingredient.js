@@ -50,6 +50,16 @@ export default class Ingredient {
         this._amountType = value;
     }
 
+    getPdfElement() {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <p><b>${this.name}</b></p>
+            <p>${this.amount} ${this.amountType}</p>
+        `;
+
+        return listItem;
+    }
+
     static search(query) {
         console.log('Search method.');
         const request = Api.fetchByName(query);
